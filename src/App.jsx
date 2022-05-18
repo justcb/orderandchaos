@@ -48,7 +48,7 @@ const renderContent = () => {
     return (
       <div className="connect-wallet-container">
         <img
-          src="./assets/sethmayetlogo.png"
+          src="https://www.annes40th.com/epic/sethmayetlogo.png"
               alt="Seth|Mayet"
         />
         <button
