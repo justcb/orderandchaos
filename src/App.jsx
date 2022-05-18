@@ -48,8 +48,8 @@ const renderContent = () => {
     return (
       <div className="connect-wallet-container">
         <img
-          src="https://miro.medium.com/max/1400/0*ib9D7c0EasVhms2_.png"
-              alt="Order and Chaos"
+          src="sethmayet-logo.png"
+              alt="Seth|Mayet"
         />
         <button
           className="cta-button connect-wallet-button"
@@ -138,7 +138,7 @@ useEffect(() => {
   <div className="App">
     <div className="container">
       <div className="header-container">
-        <p className="header gradient-text">Order and Chaos</p>
+        <p className="header gradient-text">SETH|MAYET</p>
         <p className="sub-text">Hack to Maintain the Balance</p>
         {/* This is where our button and image code used to be!
          *	Remember we moved it into the render method.
