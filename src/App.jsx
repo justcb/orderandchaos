@@ -42,6 +42,9 @@ const App = () => {
   };
 const renderContent = () => {
   /*
+
+  Pre scenario 1, I want to add the quiz if the variable hackerSide is not set.  I will just need to add the quiz and then somehow refresh the app upon completion.
+
    * Scenario #1
    */
   if (!currentAccount) {
