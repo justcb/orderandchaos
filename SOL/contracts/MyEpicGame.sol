@@ -9,6 +9,9 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "./libraries/Base64.sol";
+import "./GameToken.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 
 
 contract MyEpicGame is ERC721 {

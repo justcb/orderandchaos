@@ -3,6 +3,8 @@ import './App.css';
 import SelectCharacter from './Components/SelectCharacter';
 import { CONTRACT_ADDRESS, transformCharacterData } from './constants';
 import Arena from './Components/Arena';
+import SplashScreen from './Components/SplashScreen';
+import SelectCharacterType from './Components/SelectCharacterType';
 import myEpicGame from './utils/MyEpicGame.json';
 import { ethers } from 'ethers';
 import twitterLogo from './assets/twitter-logo.svg';
@@ -13,8 +15,10 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
   // State
+  const [characterType, setCharacterType] = useState(null);
   const [currentAccount, setCurrentAccount] = useState(null);
   const [characterNFT, setCharacterNFT] = useState(null);
+  const [loading, setLoading] = useState(null);
   // Actions
   const checkIfWalletIsConnected = async () => {
     try {
@@ -47,24 +51,37 @@ const renderContent = () => {
 
    * Scenario #1
    */
-  if (!currentAccount) {
-    return (
-      <div className="connect-wallet-container">
-        <img
-          src="https://www.annes40th.com/epic/sethmayetlogo.png"
-              alt="Seth|Mayet"
-        />
-        <button
-          className="cta-button connect-wallet-button"
-          onClick={connectWalletAction}
-        >
-          Connect Wallet To Get Started
-        </button>
-      </div>
-    );
-    /*
-     * Scenario #2
-     */
+  if (!SplashScreen) {
+ 
+    return <SplashScreen setSplashScreen = {setSplashScreen} />;
+  }
+
+    else if (!characterType) {
+ 
+    return <SelectCharacterType setCharacterType = {setCharacterType} />;
+  }
+    else if (!currentAccount) {
+ 
+      return (
+  
+        //Else continue
+        <div className="connect-wallet-container">
+          <img
+            src="https://www.annes40th.com/epic/sethmayetlogo.png"
+                alt="Seth|Mayet"
+          />
+          <button
+            className="cta-button connect-wallet-button"
+            onClick={connectWalletAction}
+          >
+            Connect Wallet To Get Started
+          </button>
+        </div>
+      );
+      /*
+       * Scenario #2
+       */
+    
   } else if (currentAccount && !characterNFT) {
     return <SelectCharacter setCharacterNFT={setCharacterNFT} />;
   } else if (currentAccount && characterNFT) {
