@@ -12,6 +12,7 @@ import twitterLogo from './assets/twitter-logo.svg';
 // Constants
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+const personType = "Blue";
 
 const App = () => {
   // State
@@ -151,7 +152,7 @@ useEffect(() => {
       <div className="header-container">
         <p className="header gradient-text">SETH|MAYET</p>
         <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
-        <p className="sub-text">Hack to Maintain the Balance</p>
+        <p className="sub-text">Hack to Maintain the Balance {personType}</p>
         {/* This is where our button and image code used to be!
          *	Remember we moved it into the render method.
          */}
