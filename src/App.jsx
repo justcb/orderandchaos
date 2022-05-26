@@ -3,7 +3,7 @@ import './App.css';
 import SelectCharacter from './Components/SelectCharacter';
 import { CONTRACT_ADDRESS, transformCharacterData } from './constants';
 import Arena from './Components/Arena';
-import SplashScreen from './Components/SplashScreen';
+//import SplashScreen from './Components/SplashScreen';
 import SelectCharacterType from './Components/SelectCharacterType';
 import myEpicGame from './utils/MyEpicGame.json';
 import { ethers } from 'ethers';
@@ -15,10 +15,10 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
   // State
-  const [characterType, setCharacterType] = useState(null);
+  //const [characterType, setCharacterType] = useState(null);
   const [currentAccount, setCurrentAccount] = useState(null);
   const [characterNFT, setCharacterNFT] = useState(null);
-  const [SplashScreen, setSplashScreen] = useState(null);
+  //const [SplashScreen, setSplashScreen] = useState(null);
   // Actions
   const checkIfWalletIsConnected = async () => {
     try {
@@ -51,16 +51,7 @@ const renderContent = () => {
 
    * Scenario #1
    */
-  if (!SplashScreen) {
- 
-    return <SplashScreen setSplashScreen = {setSplashScreen} />;
-  }
-
-    else if (!characterType) {
- 
-    return <SelectCharacterType setCharacterType = {setCharacterType} />;
-  }
-    else if (!currentAccount) {
+  if (!currentAccount) {
  
       return (
   
