@@ -142,6 +142,7 @@ useEffect(() => {
     <div className="container">
       <div className="header-container">
         <p className="header gradient-text">SETH|MAYET</p>
+        <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
         <p className="sub-text">Hack to Maintain the Balance</p>
         {/* This is where our button and image code used to be!
          *	Remember we moved it into the render method.
