@@ -18,7 +18,7 @@ const App = () => {
   const [characterType, setCharacterType] = useState(null);
   const [currentAccount, setCurrentAccount] = useState(null);
   const [characterNFT, setCharacterNFT] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [SplashScreen, setSplashScreen] = useState(null);
   // Actions
   const checkIfWalletIsConnected = async () => {
     try {
