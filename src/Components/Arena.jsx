@@ -11,6 +11,7 @@ const Arena = ({ formData }) => {
     const [strongHold, setStrongHold] = useState(null);
     const [attackState, setAttackState] = useState('');
     const { personType } = formData;
+    const { characterNFT } = formData;
     // Splash Screen
     useEffect(() => {
         // Wait for 3 seconds

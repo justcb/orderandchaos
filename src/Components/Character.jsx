@@ -113,7 +113,13 @@ const Character = ({ setForm, formData, navigation }) => {
             if (gameContract) {
                 const characterNFT = await gameContract.checkIfUserHasNFT();
                 console.log('CharacterNFT: ', characterNFT);
-                setCharacterNFT(transformCharacterData(characterNFT));
+                //setCharacterNFT(transformCharacterData(characterNFT));
+                setForm({
+                    target: {
+                        name: 'characterNFT', // form element
+                        value: characterNFT // the data/url
+                    }
+                })
             }
         };
         /*
