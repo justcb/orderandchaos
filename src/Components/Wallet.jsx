@@ -7,6 +7,7 @@ import myEpicGame from "../utils/MyEpicGame.json";
 const Wallet = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [currentAccount, setCurrentAccount] = useState(null);
+    const [characterNFT, setCharacterNFT] = useState(null);
 
     const { next } = navigation;
 
