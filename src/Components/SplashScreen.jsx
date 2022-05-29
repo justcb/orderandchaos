@@ -1,15 +1,17 @@
 import React from 'react';
-import './LoadingIndicator.css';
+import '../assets/css/SplashScreen.css';
 
-const LoadingIndicator = () => {
+const SplashScreen = () => {
+
   return (
     <div className="lds-ring">
       <div></div>
       <div></div>
+      
       <div></div>
       <div></div>
     </div>
   );
 };
 
-export default LoadingIndicator;
+export default SplashScreen;
