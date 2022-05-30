@@ -10,7 +10,8 @@ import '../assets/css/SelectCharacter.css';
 const Character = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const {next} = navigation;
-    const { personType } = formData;
+    const { go } = navigation;
+    const { personType, isMinted } = formData;
     // Splash Screen
     useEffect(() => {
         // Wait for 3 seconds
@@ -32,7 +33,14 @@ const Character = ({ setForm, formData, navigation }) => {
                 const mintTxn = await gameContract.mintCharacterNFT(characterId);
                 await mintTxn.wait();
                 console.log('mintTxn:', mintTxn);
+                setForm({
+                    target: {
+                        name: 'isMinted', // form element
+                        value: true // the data/url
+                    }
+                })
             }
+
         } catch (error) {
             console.warn('MintCharacterAction Error:', error);
         }
@@ -117,7 +125,7 @@ const Character = ({ setForm, formData, navigation }) => {
                 setForm({
                     target: {
                         name: 'characterNFT', // form element
-                        value: characterNFT // the data/url
+                        value: transformCharacterData(characterNFT) // the data/url
                     }
                 })
             }
@@ -147,17 +155,19 @@ const Character = ({ setForm, formData, navigation }) => {
                     <div className="header-container">
                         <p className="header gradient-text">SETH|MAYET</p>
                         <p className="sub-text">Hack to Maintain the Balance {`${personType}`}</p>
-                        <div className="select-character-container">
-                            <h2>Choose Your Hacker</h2>
-                            {/* Only show this when there are characters in state */}
-                            {characters.length > 0 && (
-                                <div className="character-grid">{renderCharacters()}</div>
-                            )}
-                            <button onClick={next}>Next</button>
+                            {!isMinted ? (
+                                <div className="select-character-container">
+                                <h2>Choose Your Hacker</h2>
+                                {/* Only show this when there are characters in state */}
+                                {characters.length > 0 && (
+                                    <div className="character-grid">{renderCharacters()}</div>
+                                )}</div>
+                                )  : (
+                                <button onClick={next}>You have an NFT ready to battle.  Proceed to the arena.</button>
+                                )}
                         </div>
                     </div>
                 </div>
-            </div>
         )
 }
 export default Character;

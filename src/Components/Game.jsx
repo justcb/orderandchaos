@@ -4,7 +4,7 @@ import Quiz from "./Quiz";
 import Wallet from "./Wallet";
 import Character from "./Character";
 import Arena from "./Arena";
-
+import Result from "./Result";
 
 const steps = [
     { id: "quiz" },
@@ -16,15 +16,17 @@ const steps = [
 ];
 
 const defaultData = {
-    personType: 'Blue',
+    personType: '',
     scoreTotal: '',
-    character: ''
+    character: '',
+    isMinted: false
 };
 
 const Game = () => {
     const { step, navigation } = useStep({ initialStep: 0, steps });
     const { id } = step;
     const [formData, setForm] = useForm(defaultData);
+    const { go } = navigation;
 
     const props = { formData, setForm, navigation};
 

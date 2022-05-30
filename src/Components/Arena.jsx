@@ -5,11 +5,14 @@ import {CONTRACT_ADDRESS, transformCharacterData} from "../constants";
 import myEpicGame from "../utils/MyEpicGame.json";
 import '../assets/css/Arena.css'
 
-const Arena = ({ formData }) => {
+// onClick={() => go("submit")}
+
+const Arena = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [gameContract, setGameContract] = useState(null);
     const [strongHold, setStrongHold] = useState(null);
     const [attackState, setAttackState] = useState('');
+    const { go } = navigation;
     const { personType, characterNFT } = formData;
     // Splash Screen
     useEffect(() => {
@@ -19,14 +22,17 @@ const Arena = ({ formData }) => {
         }, 1500);
     }, []);
 
+    // add results navigation and go from the arena to the results.
 
     const runAttackAction = async () => {
         try {
             if (gameContract) {
                 setAttackState('attacking');
                 console.log('Attacking boss...');
+            //    const attackTxn = await gameContract.pay();
                 const attackTxn = await gameContract.attackBoss();
                 await attackTxn.wait();
+            //    decide win or lose; if win, win() navigate to win, else navigate to lose.
                 console.log('attackTxn:', attackTxn);
                 setAttackState('hit');
             }
@@ -80,7 +86,7 @@ const Arena = ({ formData }) => {
                 <div className="container">
                     <div className="header-container">
                         <p className="header gradient-text">SETH|MAYET</p>
-                        <p className="sub-text">Hack to Maintain the Balance {`${personType}`}</p>
+                        <p className="sub-text">Hack to Maintain the Balance</p>
                         <div className="arena-container">
                             {/* Boss */}
                             {strongHold && (
@@ -118,7 +124,7 @@ const Arena = ({ formData }) => {
                                                 </div>
                                             </div>
                                             <div className="stats">
-                                                <h4>{`⚔️ Attack Damage: ${characterNFT.attackDamage1}`}</h4>
+                                                <h4>{`⚔️ Attack Damage: ${characterNFT.attackDamage}`}</h4>
                                             </div>
                                         </div>
                                     </div>

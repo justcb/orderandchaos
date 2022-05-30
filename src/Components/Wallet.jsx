@@ -10,8 +10,9 @@ const Wallet = ({ setForm, formData, navigation }) => {
     const [characterNFT, setCharacterNFT] = useState(null);
 
     const { next } = navigation;
+    const { go } = navigation;
 
-    const { personType, scoreTotal } = formData;
+    const { personType, scoreTotal, isMinted } = formData;
     console.log('score total is '+scoreTotal);
     console.log(formData);
     // Splash Screen
@@ -97,8 +98,20 @@ const Wallet = ({ setForm, formData, navigation }) => {
 
             const txn = await gameContract.checkIfUserHasNFT();
             if (txn.name) {
+                setForm({
+                    target: {
+                        name: 'isMinted', // form element
+                        value: true // the data/url
+                    }
+                })
                 console.log('User has character NFT');
-                setCharacterNFT(transformCharacterData(txn));
+                //setCharacterNFT(transformCharacterData(txn));
+                setForm({
+                target: {
+                name: 'characterNFT', // form element
+                value: transformCharacterData(txn) // the data/url
+                }
+                })
             } else {
                 console.log('No character NFT found');
             }
@@ -120,7 +133,7 @@ const Wallet = ({ setForm, formData, navigation }) => {
                 <div className="container">
                     <div className="header-container">
                         <p className="header gradient-text">SETH|MAYET</p>
-                        <p className="sub-text">Hack to Maintain the Balance {`${personType}`}</p>
+                        <p className="sub-text">Hack to Maintain the Balance</p>
                         <div className="connect-wallet-container">
                             <img
                                 src="https://www.annes40th.com/epic/sethmayetlogo.png"
@@ -134,7 +147,7 @@ const Wallet = ({ setForm, formData, navigation }) => {
                                     Connect Wallet To Get Started
                                 </button>
                                 :
-                                <button onClick={next}>Next</button>}
+                                <button onClick={next}>It appears that your wallet is connected.  You may continue on.</button>}
                         </div>
                     </div>
                 </div>
