@@ -10,7 +10,9 @@ const steps = [
     { id: "quiz" },
     { id: "wallet" },
     { id: "character" },
-    { id: "arena" }
+    { id: "arena" },
+    { id: "result" }
+
 ];
 
 const defaultData = {
@@ -35,6 +37,8 @@ const Game = () => {
             return <Character {...props} />;
         case "arena":
             return <Arena {...props} />;
+        case "result":
+            return <Result {...props} />;    
         default:
             return null;
     }

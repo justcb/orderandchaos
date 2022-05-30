@@ -21,12 +21,10 @@ contract MyEpicGame is ERC721 {
     uint characterIndex;
     string name;
     string imageURI;        
-    uint level;
+    uint defense;
     uint hp;
     uint maxHp;
-    uint attackDamage1;
-    uint speed;
-    uint informationValue;
+    uint attackDamage;
   }
 
   // The tokenId is the NFTs unique identifier, it's just a number that goes
@@ -50,6 +48,7 @@ contract MyEpicGame is ERC721 {
   event AttackComplete(address sender, uint newBossHp, uint newPlayerHp);
 
   struct StrongHold {
+    uint strongHoldIndex;
     string name;
     uint hp;
     uint attackDamage;
@@ -63,23 +62,20 @@ contract MyEpicGame is ERC721 {
   constructor(
     string[] memory characterNames,
     string[] memory characterImageURIs,
-    uint[] memory characterLevel,
+    uint[] memory characterDefense,
     uint[] memory characterHp,
-    uint[] memory characterAttackDmg1,
-    uint[] memory characterSpeed,
-    uint[] memory characterInformationValue,
-    string memory bossName, // These new variables would be passed in via run.js or deploy.js.
-    // string memory bossImageURI,
-    uint bossHp,
-    uint bossAttackDamage
+    uint[] memory characterAttackDamage,
+    string [] memory bossName, 
+    uint [] memory bossHp,
+    string [] memory bossURI,
+    uint [] memory bossAttackDamage
   )
   ERC721("Hackers", "HACK")
   {
   strongHold = StrongHold({
     name: bossName,
-  //   imageURI: bossImageURI,
     hp: bossHp,
-  //   maxHp: bossHp,
+    URI: bossURI,
     attackDamage: bossAttackDamage
    });
 
@@ -95,7 +91,7 @@ contract MyEpicGame is ERC721 {
         level: characterLevel[i],
         hp: characterHp[i],
         maxHp: characterHp[i],
-        attackDamage1: characterAttackDmg1[i],
+        attackDamage: characterAttackDmg[i],
         speed: characterSpeed[i],
         informationValue: characterInformationValue[i]
       }));
@@ -104,7 +100,6 @@ contract MyEpicGame is ERC721 {
       console.log("Done initializing %s w/ HP %s, img %s", c.name, c.hp, c.imageURI);
     }
     // I increment _tokenIds here so that my first NFT has an ID of 1.
-    // More on this in the lesson!
     _tokenIds.increment();
   }
   function tokenURI(uint256 _tokenId) public view override returns (string memory) {
@@ -113,7 +108,7 @@ contract MyEpicGame is ERC721 {
   string memory strLevel = Strings.toString(charAttributes.level);
   string memory strHp = Strings.toString(charAttributes.hp);
   string memory strMaxHp = Strings.toString(charAttributes.maxHp);
-  string memory strAttackDamage1 = Strings.toString(charAttributes.attackDamage1);
+  string memory strAttackDamage = Strings.toString(charAttributes.attackDamage);
   string memory strSpeed = Strings.toString(charAttributes.speed);
   string memory strInformationValue = Strings.toString(charAttributes.informationValue);
 
@@ -152,10 +147,10 @@ contract MyEpicGame is ERC721 {
       strongHold.hp > 0,
       "Error: boss must have HP to attack boss."
     );
-    if (strongHold.hp < player.attackDamage1) {
+    if (strongHold.hp < player.attackDamage) {
     strongHold.hp = 0;
     } else {
-    strongHold.hp = strongHold.hp - player.attackDamage1;
+    strongHold.hp = strongHold.hp - player.attackDamage;
     }
       // Allow boss to attack player.
     if (player.hp < strongHold.attackDamage) {
