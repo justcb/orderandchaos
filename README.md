@@ -69,3 +69,28 @@ Hit run
 Edit App.jsx and watch it live update!
 By default, Replit runs the dev script, but you can configure it by changing the run field in the .replit file.
 '''
+
+Notes:
+
+There are a few components to the creation and implementation of this project.  It begins with the blockchain contract that is writen in Solidity.  That file, OrderAndChaos.sol contains the NFT minting functions and the game functions.  It can be deployed on the blockchain in many different ways.  Contained in this repo is an example deploy script.  This script both deploys the contract and initializes the NFT characters along with their characteristics.  Upon deployment, a random number generator is used to create variety of player attributes.  This will make some NFTs more powerful, and therefore, more valuable.  These characteristics can be seen on either [Etherscan](https://rinkeby.etherscan.io/tx/0x5c2e8c789dec3b7fe1eff0df23a1e0bf69ba2e2081dd35b995ca8b888a4d272b) or [OpenSea](https://testnets.opensea.io/collection/hackers-ez8rivuvzl).  Because this is simply a proof of concept, the Rinkeby test network versions of these tools are used and linked here.
+
+Once the contract is deployed, the contract appears on Etherscan.
+
+
+Once characters are minted, they will appear on OpenSea under the contract address (0xb2D7fBcdADcb07a1e5bb4163832E3f53c46Afa6d). 
+
+Having deployed the minting and game contract, we next need to deploy the token contract.  Again, we use Remix.
+
+The token contract is available on [Etherscan](https://rinkeby.etherscan.io/address/0x463f1a338fe055131ac41d3ae8dbe60bbc6b9622).
+
+Now that we have the NFT mint function, the game function, and the tokens on the blockchain, we are ready to move to the React user interface.
+
+For that, we are going to rely on DigitalOcean to deploy our JavaScript website.  DigitalOcean is great because it automatically redeploys with any change to the source code inside the Git repo.  
+
+[Order and Chaos](https://shark-app-rakzp.ondigitalocean.app/)
+
+Add screen shots below.
+
+
+
+
