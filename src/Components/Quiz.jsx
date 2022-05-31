@@ -46,6 +46,7 @@ const Quiz = ({ setForm, formData, navigation }) => {
     const [scoreType, setScoreType] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const { next } = navigation;
+    const { go } = navigation;
     const { personType } = formData;
     console.log('score type '+scoreType);
     console.log('score is '+score);
@@ -58,6 +59,9 @@ const Quiz = ({ setForm, formData, navigation }) => {
             setIsLoading(false);
         }, 1500);
     }, []);
+
+ // if !characterType -> continue, else move to Character
+
 
     // Actions
     const handleAnswerOptionClick = (isCorrect) => {
