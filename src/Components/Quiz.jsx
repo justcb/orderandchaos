@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import SplashScreen from "./SplashScreen";
+import IntroScreen from "./IntroScreen";
 
 const questions = [
     {
@@ -57,7 +57,7 @@ const Quiz = ({ setForm, formData, navigation }) => {
         // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
-        }, 1500);
+        }, 7000);
     }, []);
 
  // if !characterType -> continue, else move to Character
@@ -87,7 +87,7 @@ const Quiz = ({ setForm, formData, navigation }) => {
     }
 
     return isLoading ?
-        <SplashScreen isLoading={isLoading} /> :
+        <IntroScreen isLoading={isLoading} /> :
         (
             <div className="App">
                 <div className="container">
