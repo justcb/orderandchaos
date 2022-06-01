@@ -5,13 +5,18 @@ import Wallet from "./Wallet";
 import Character from "./Character";
 import Arena from "./Arena";
 import Result from "./Result";
+import Win from "./Win";
+import Lose from "./Lose";
+
 
 const steps = [
     { id: "quiz" },
     { id: "wallet" },
     { id: "character" },
     { id: "arena" },
-    { id: "result" }
+    { id: "result" },
+    { id: "win" },
+    { id: "lose" }
 
 ];
 
@@ -19,7 +24,9 @@ const defaultData = {
     personType: '',
     scoreTotal: '',
     character: '',
-    isMinted: false
+    isMinted: false,
+    hasBattled: false,
+    hasBattled2: false
 };
 
 const Game = () => {
@@ -40,7 +47,11 @@ const Game = () => {
         case "arena":
             return <Arena {...props} />;
         case "result":
-            return <Result {...props} />;    
+            return <Result {...props} />;
+        case "win":
+            return <Win {...props} />;    
+        case "lose":
+            return <Lose {...props} />;     
         default:
             return null;
     }

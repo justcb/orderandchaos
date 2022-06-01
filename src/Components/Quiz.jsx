@@ -14,7 +14,7 @@ const questions = [
         questionText: 'The world is better when people can do what they want.',
         answerOptions: [
             { answerText: 'True', isCorrect: false },
-            { answerText: 'Flase', isCorrect: true },
+            { answerText: 'False', isCorrect: true },
         ],
     },
     {
@@ -59,7 +59,7 @@ const Quiz = ({ setForm, formData, navigation }) => {
         // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
-        }, 1000);
+        }, 14000);
     }, []);
 
  // if !characterType -> continue, else move to Character
