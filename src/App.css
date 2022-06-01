@@ -74,17 +74,16 @@
 }
 
 .connect-wallet-button {
-  background-image: linear-gradient(
-    to right,
-    #ff8177 0%,
-    #ff867a 0%,
-    #ff8c7f 21%,
-    #f99185 52%,
-    #cf556c 78%,
-    #b12a5b 100%
-  );
-  background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
+  display: inline-block;
+  border: none;
+  background: #000000;
+  color: #61dd09;
+  font-family:'Courier New', Courier, monospace;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  top: 400px;
+  left: 720px;
 }
 
 .mint-button {

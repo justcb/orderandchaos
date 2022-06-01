@@ -157,13 +157,16 @@ const Character = ({ setForm, formData, navigation }) => {
                         <p className="sub-text"></p>
                             {!isMinted ? (
                                 <div className="select-character-container">
-                                <h2>Choose Your Hacker</h2>
+                                To Proceed, You Must Choose Your Hacker
                                 {/* Only show this when there are characters in state */}
                                 {characters.length > 0 && (
                                     <div className="character-grid">{renderCharacters()}</div>
                                 )}</div>
                                 )  : ( 
-                                <button onClick={next}>You have an NFT ready to battle.  Proceed to the arena.</button>
+                                    <div className="character_next">
+                                    You have an NFT character.  You can proceed to the battle phase.
+                                    <div className="next_button_wallet"><button onClick={next}>Next</button></div>
+                                </div>
                                 )}
                         </div>
                     </div>

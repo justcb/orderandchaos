@@ -3,6 +3,7 @@ import SplashScreen from "./SplashScreen";
 import { CONTRACT_ADDRESS, transformCharacterData } from '../constants';
 import { ethers } from 'ethers';
 import myEpicGame from "../utils/MyEpicGame.json";
+import '../assets/css/Wallet.css';
 
 const Wallet = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -135,19 +136,18 @@ const Wallet = ({ setForm, formData, navigation }) => {
                         <p className="header gradient-text"></p>
                         <p className="sub-text"></p>
                         <div className="connect-wallet-container">
-                            <img
-                                src="https://www.annes40th.com/epic/sethmayetlogo.png"
-                                
-                            />
                             {!currentAccount ?
                                 <button
                                     className="cta-button connect-wallet-button"
                                     onClick={connectWalletAction}
                                 >
-                                    Connect Wallet To Get Started
+                                    Identify yourself by connecting your wallet.
                                 </button>
                                 :
-                                <button onClick={next}>It appears that your wallet is connected.  You may continue on.</button>}
+                                <div className="wallet_next">
+                                    Your wallet is connected.  You may proceed.
+                                    <div className="next_button_wallet"><button onClick={next}>Next</button></div>
+                                </div>}
                         </div>
                     </div>
                 </div>

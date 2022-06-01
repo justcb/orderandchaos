@@ -1,18 +1,21 @@
 .select-character-container {
+  position: absolute;
+  top: 250px;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: #61dd09;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .select-character-container .character-grid {
-  width: 100%;
+  width: 35%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
-  grid-row-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+  grid-row-gap: 10px;
 }
 
 .character-grid .character-item {
@@ -24,36 +27,45 @@
 }
 
 .character-item img {
-  height: 300px;
-  width: 350px;
+  height: 120px;
+  width: 120px;
   border-radius: 10px;
   object-fit: cover;
 }
 
 .character-item .name-container {
   position: absolute;
-  background-color: #838383;
+  background-color: #000000;
+  opacity: 0.0;
   border-radius: 5px;
-  margin: 10px;
+  margin: 5px;
 }
 
 .character-item .name-container p {
   margin: 0;
-  padding: 5px 10px 5px 10px;
-  font-weight: bold;
+  opacity: 0.0;
+  padding: 5px 5px 5px 5px;
 }
 
 .character-item .character-mint-button {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 40px;
+  height: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border: none;
   cursor: pointer;
-  background-color: rgb(145, 146, 147);
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
+  background-color: rgb(0, 0, 0);
+  color: #61dd09;
+  font-size: 12px;
+}
+
+.character_next {
+  color: #61dd09;
+  background-color: #000000;
+  position: absolute;
+  top: 400px;
+  left: 650px;
+
 }
