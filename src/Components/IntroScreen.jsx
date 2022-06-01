@@ -5,23 +5,24 @@ const IntroScreen = () => {
 
   return (
 
-<section className="star-wars">
-<div className="fade"></div>
-  <div className="crawl">
-
-    <div className="title">
-      <p>Order and Chaos</p>
-      <h1>Hack to Maintain the Balance</h1>
-    </div>
-    
-    <p>Since the earliest days, a battle has raged between the forces of Chaos and the forces of Order.</p>      
-    <p>You have been recruited to join an army of hackers.  But first you must choose your side.</p>
-    
-  </div>
-  <div className = "button">
-    <p>Hello World</p>
-  </div>
-
+<section className="container">
+<div className="container">
+<div className="typewriter">
+  <h1>There has always been a battle...</h1>
+</div> 
+<div className="typewriter2">
+  <h1>Between Order and Chaos.</h1>
+</div> 
+<div className="typewriter3">
+  <h1>Now You Can Join the Fight.</h1>
+</div> 
+<div className="typewriter4">
+  <h1>But First You Have to Pick a Side</h1>
+</div> 
+<div className="typewriter5">
+  <h1>Welcome to Order and Chaos</h1>
+</div> 
+</div>
 </section>
   );
 };

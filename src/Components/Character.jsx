@@ -153,8 +153,8 @@ const Character = ({ setForm, formData, navigation }) => {
             <div className="App">
                 <div className="container">
                     <div className="header-container">
-                        <p className="header gradient-text">SETH|MAYET</p>
-                        <p className="sub-text">Hack to Maintain the Balance {`${personType}`}</p>
+                        <p className="header gradient-text"></p>
+                        <p className="sub-text"></p>
                             {!isMinted ? (
                                 <div className="select-character-container">
                                 <h2>Choose Your Hacker</h2>
@@ -162,7 +162,7 @@ const Character = ({ setForm, formData, navigation }) => {
                                 {characters.length > 0 && (
                                     <div className="character-grid">{renderCharacters()}</div>
                                 )}</div>
-                                )  : (
+                                )  : ( 
                                 <button onClick={next}>You have an NFT ready to battle.  Proceed to the arena.</button>
                                 )}
                         </div>

@@ -132,12 +132,12 @@ const Wallet = ({ setForm, formData, navigation }) => {
             <div className="App">
                 <div className="container">
                     <div className="header-container">
-                        <p className="header gradient-text">SETH|MAYET</p>
-                        <p className="sub-text">Hack to Maintain the Balance</p>
+                        <p className="header gradient-text"></p>
+                        <p className="sub-text"></p>
                         <div className="connect-wallet-container">
                             <img
                                 src="https://www.annes40th.com/epic/sethmayetlogo.png"
-                                alt="Seth|Mayet"
+                                
                             />
                             {!currentAccount ?
                                 <button

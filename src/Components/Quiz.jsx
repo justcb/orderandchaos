@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import IntroScreen from "./IntroScreen";
+import '../assets/css/Quiz.css';
 
 const questions = [
     {
@@ -50,6 +51,7 @@ const Quiz = ({ setForm, formData, navigation }) => {
     const { personType } = formData;
     console.log('score type '+scoreType);
     console.log('score is '+score);
+    let suggestion = "Chaos";
 
     // Splash Screen
     useEffect(() => {
@@ -57,7 +59,7 @@ const Quiz = ({ setForm, formData, navigation }) => {
         // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
-        }, 7000);
+        }, 1000);
     }, []);
 
  // if !characterType -> continue, else move to Character
@@ -92,15 +94,18 @@ const Quiz = ({ setForm, formData, navigation }) => {
             <div className="App">
                 <div className="container">
                     <div className="header-container">
-                        <p className="header gradient-text">SETH|MAYET</p>
-                        <p className="sub-text">Hack to Maintain the Balance {`${personType}`}</p>
+                        <p className="header gradient-text"></p>
+                        <p className="sub-text"></p>
 
                         {showScore ? <div className='app'>
+                                <div className="hidden">{score > 2 ? suggestion = "Order": suggestion = "Chaos"}</div>
                                 <div className='score-section'>
-                                    You scored {score}. That suggests that you should be in Order. But the choice is yours.
-                                    Choose below.
+                                    Based on your personality score, you should be in {suggestion}. But ultimately the choice is yours.
+                                    
+                                    <div className = "next_button">
+                                        <button onClick={next}> Next -></button>
+                                    </div>                   
                                 </div>
-                                <button onClick={next}>Next</button>
                             </div> :
 
                             <div className='app'>

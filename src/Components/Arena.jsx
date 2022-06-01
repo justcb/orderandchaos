@@ -85,8 +85,8 @@ const Arena = ({ setForm, formData, navigation }) => {
             <div className="App">
                 <div className="container">
                     <div className="header-container">
-                        <p className="header gradient-text">SETH|MAYET</p>
-                        <p className="sub-text">Hack to Maintain the Balance</p>
+                        <p className="header gradient-text"></p>
+                        <p className="sub-text"></p>
                         <div className="arena-container">
                             {/* Boss */}
                             {strongHold && (
