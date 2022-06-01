@@ -131,7 +131,13 @@ const Character = ({ setForm, formData, navigation }) => {
                                 To Proceed, You Must Choose Your Hacker
                                 {characters.length > 0 && (
                                     <div className="character-grid">{renderCharacters()}</div>
-                                )}</div>
+                                )}
+                                    <div className="chaos">Chaos</div>
+
+                                    <div className="order">Order</div>
+                                </div>
+
+
                                 )  : ( 
                                     <div className="character_next">
                                     You have an NFT character.  You can proceed to the battle phase.

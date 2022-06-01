@@ -79,3 +79,25 @@
   left: 630px;
 
 }
+
+.chaos {
+  color: #cd1922;
+  background-color: #000000;
+  position: absolute;
+  top: 310px;
+  left: 750px;
+  font-size: 32px;
+  font-weight: bold;
+
+}
+
+.order {
+  color: #61dd09;
+  background-color: #000000;
+  position: absolute;
+  top: 310px;
+  left: 1090px;
+  font-weight: bold;
+  font-size: 32px;
+
+}
