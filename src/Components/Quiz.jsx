@@ -53,19 +53,13 @@ const Quiz = ({ setForm, formData, navigation }) => {
     console.log('score is '+score);
     let suggestion = "Chaos";
 
-    // Splash Screen
     useEffect(() => {
-
-        // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
         }, 14000);
     }, []);
 
- // if !characterType -> continue, else move to Character
 
-
-    // Actions
     const handleAnswerOptionClick = (isCorrect) => {
         if (isCorrect) {
             setScore(score + 1);
@@ -78,11 +72,10 @@ const Quiz = ({ setForm, formData, navigation }) => {
             setShowScore(true);
             setScoreType(1);
 
-            //this is how we set value inside our form data object
             setForm({
                 target: {
-                    name: 'scoreTotal', // form element
-                    value: score // the data/url
+                    name: 'scoreTotal', 
+                    value: score 
                 }
             })
         }

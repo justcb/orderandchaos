@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
 import SplashScreen from "./SplashScreen";
 import {ethers} from "ethers";
-import {CONTRACT_ADDRESS, transformCharacterData} from "../constants";
+import {CONTRACT_ADDRESS, transformCharacterData, TOKEN_ADDRESS} from "../constants";
 import myEpicGame from "../utils/MyEpicGame.json";
 import '../assets/css/Arena.css'
-
-// onClick={() => go("submit")}
 
 const Result = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -15,38 +13,31 @@ const Result = ({ setForm, formData, navigation }) => {
     const { go } = navigation;
     const {next} = navigation;
     const { personType, characterNFT, hasBattled, hasBattled2 } = formData;
-    // Splash Screen
     useEffect(() => {
-        // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);
     }, []);
-
-
-    // add results navigation and go from the arena to the results.
 
     const runAttackAction = async () => {
         try {
             if (gameContract) {
                 setAttackState('attacking');
                 console.log('Attacking boss...');
-            //    const attackTxn = await gameContract.pay();
                 const attackTxn = await gameContract.attackBoss({gasLimit: 250000});
                 await attackTxn.wait();
-            //    decide win or lose; if win, win() navigate to win, else navigate to lose.
                 console.log('attackTxn:', attackTxn);
                 setAttackState('hit');
                 setForm({
                     target: {
-                        name: 'hasBattled2', // form element
-                        value: true // the data/url
+                        name: 'hasBattled2', 
+                        value: true 
                     }
                 });
                 setForm({
                     target: {
-                        name: 'hasBattled', // form element
-                        value: false // the data/url
+                        name: 'hasBattled',
+                        value: false 
                     }
                 });
             }
@@ -55,8 +46,6 @@ const Result = ({ setForm, formData, navigation }) => {
             setAttackState('');
         }
     };
-
-    // UseEffects
     useEffect(() => {
         const { ethereum } = window;
 
@@ -76,9 +65,6 @@ const Result = ({ setForm, formData, navigation }) => {
     }, []);
 
     useEffect(() => {
-        /*
-         * Setup async function that will get the boss from our contract and sets in state
-         */
         const fetchStrongHold = async () => {
             const strongHoldTxn = await gameContract.getStrongHold();
             console.log('StrongHold:', strongHoldTxn);
@@ -88,18 +74,14 @@ const Result = ({ setForm, formData, navigation }) => {
         const fetchCharacterNFT = async () => {
             const characterNFT = await gameContract.checkIfUserHasNFT();
             console.log('CharacterNFT: ', characterNFT);
-            //setCharacterNFT(transformCharacterData(characterNFT));
            setForm({
                 target: {
-                    name: 'characterNFT', // form element
-                    value: transformCharacterData(characterNFT) // the data/url
+                    name: 'characterNFT',
+                    value: transformCharacterData(characterNFT) 
             }
         }) };
 
         if (gameContract) {
-            /*
-             * gameContract is ready to go! Let's fetch our boss
-             */
             fetchStrongHold();
             fetchCharacterNFT();
             
@@ -128,7 +110,6 @@ const Result = ({ setForm, formData, navigation }) => {
                         }
                         {!hasBattled2 && characterNFT.hp !== 0 && strongHold.hp !== 0 && (
                         <div className="arena-container">
-                            {/* Boss */}
                             {strongHold && (
                                 <div className="boss-info">
                                         It is time to battle the stronghold.
@@ -147,7 +128,7 @@ const Result = ({ setForm, formData, navigation }) => {
                         {hasBattled2 && characterNFT.hp !== 0 && strongHold.hp !== 0 && (
                                 <div className="wallet_next">
                                 See the results of your battle.
-                                <div className="next_button_wallet"><button onClick={() => go("arena")}>Next</button></div>
+                                <div className="next_button_wallet"><button onClick={() => go("arena")}>Next -></button></div>
                                 </div>
                         )}      
                     </div>

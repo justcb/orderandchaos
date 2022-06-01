@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import SplashScreen from "./SplashScreen";
-import { CONTRACT_ADDRESS, transformCharacterData } from '../constants';
+import { CONTRACT_ADDRESS, transformCharacterData, TOKEN_ADDRESS } from '../constants';
 import { ethers } from 'ethers';
 import myEpicGame from "../utils/MyEpicGame.json";
 import '../assets/css/Wallet.css';
@@ -16,10 +16,8 @@ const Wallet = ({ setForm, formData, navigation }) => {
     const { personType, scoreTotal, isMinted } = formData;
     console.log('score total is '+scoreTotal);
     console.log(formData);
-    // Splash Screen
     useEffect(() => {
 
-        // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);
@@ -49,9 +47,6 @@ const Wallet = ({ setForm, formData, navigation }) => {
         }
     }
 
-    /*
-   * Implement your connectWallet method here
-   */
     const connectWalletAction = async () => {
         try {
             const { ethereum } = window;
@@ -60,17 +55,10 @@ const Wallet = ({ setForm, formData, navigation }) => {
                 alert('Get MetaMask!');
                 return;
             }
-
-            /*
-             * Fancy method to request access to account.
-             */
-            const accounts = await ethereum.request({
+           const accounts = await ethereum.request({
                 method: 'eth_requestAccounts',
             });
 
-            /*
-             * Boom! This should print out public address once we authorize Metamask.
-             */
             console.log('Connected', accounts[0]);
             setCurrentAccount(accounts[0]);
         } catch (error) {
@@ -83,9 +71,6 @@ const Wallet = ({ setForm, formData, navigation }) => {
     }, []);
 
     useEffect(() => {
-        /*
-         * The function we will call that interacts with out smart contract
-         */
         const fetchNFTMetadata = async () => {
             console.log('Checking for Character NFT on address:', currentAccount);
 
@@ -101,26 +86,21 @@ const Wallet = ({ setForm, formData, navigation }) => {
             if (txn.name) {
                 setForm({
                     target: {
-                        name: 'isMinted', // form element
-                        value: true // the data/url
+                        name: 'isMinted', 
+                        value: true 
                     }
                 })
                 console.log('User has character NFT');
-                //setCharacterNFT(transformCharacterData(txn));
                 setForm({
                 target: {
-                name: 'characterNFT', // form element
-                value: transformCharacterData(txn) // the data/url
+                name: 'characterNFT',
+                value: transformCharacterData(txn)
                 }
                 })
             } else {
                 console.log('No character NFT found');
             }
         };
-
-        /*
-         * We only want to run this, if we have a connected wallet
-         */
         if (currentAccount) {
             console.log('CurrentAccount:', currentAccount);
             fetchNFTMetadata();
@@ -146,7 +126,7 @@ const Wallet = ({ setForm, formData, navigation }) => {
                                 :
                                 <div className="wallet_next">
                                     Your wallet is connected.  You may proceed.
-                                    <div className="next_button_wallet"><button onClick={next}>Next</button></div>
+                                    <div className="next_button_wallet"><button onClick={next}>Next -></button></div>
                                 </div>}
                         </div>
                     </div>

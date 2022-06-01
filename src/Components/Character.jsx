@@ -1,20 +1,16 @@
 import React, {useEffect, useState} from "react";
 import SplashScreen from "./SplashScreen";
 import {ethers} from "ethers";
-import {CONTRACT_ADDRESS, transformCharacterData} from "../constants";
+import {CONTRACT_ADDRESS, transformCharacterData, TOKEN_ADDRESS} from "../constants";
 import myEpicGame from "../utils/MyEpicGame.json";
 import '../assets/css/SelectCharacter.css';
-/*
-* Don't worry about setCharacterNFT just yet, we will talk about it soon!
-*/
+
 const Character = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const {next} = navigation;
     const { go } = navigation;
     const { personType, isMinted } = formData;
-    // Splash Screen
     useEffect(() => {
-        // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);
@@ -25,7 +21,6 @@ const Character = ({ setForm, formData, navigation }) => {
     const [characters, setCharacters] = useState([]);
     const [gameContract, setGameContract] = useState(null);
 
-// Actions
     const mintCharacterNFTAction = async (characterId) => {
         try {
             if (gameContract) {
@@ -35,8 +30,8 @@ const Character = ({ setForm, formData, navigation }) => {
                 console.log('mintTxn:', mintTxn);
                 setForm({
                     target: {
-                        name: 'isMinted', // form element
-                        value: true // the data/url
+                        name: 'isMinted', 
+                        value: true 
                     }
                 })
             }
@@ -46,7 +41,6 @@ const Character = ({ setForm, formData, navigation }) => {
         }
     };
 
-    // Render Methods
     const renderCharacters = () =>
         characters.map((character, index) => (
             <div className="character-item" key={character.name}>
@@ -74,9 +68,6 @@ const Character = ({ setForm, formData, navigation }) => {
                 signer
             );
 
-            /*
-             * This is the big difference. Set our gameContract in state.
-             */
             setGameContract(gameContract);
         } else {
             console.log('Ethereum object not found');
@@ -88,22 +79,13 @@ const Character = ({ setForm, formData, navigation }) => {
             try {
                 console.log('Getting contract characters to mint');
 
-                /*
-                 * Call contract to get all mint-able characters
-                 */
                 const charactersTxn = await gameContract.getAllDefaultCharacters();
                 console.log('charactersTxn:', charactersTxn);
 
-                /*
-                 * Go through all of our characters and transform the data
-                 */
                 const characters = charactersTxn.map((characterData) =>
                     transformCharacterData(characterData)
                 );
 
-                /*
-                 * Set all mint-able characters in state
-                 */
                 setCharacters(characters);
             } catch (error) {
                 console.error('Something went wrong fetching characters:', error);
@@ -114,14 +96,9 @@ const Character = ({ setForm, formData, navigation }) => {
                 `CharacterNFTMinted - sender: ${sender} tokenId: ${tokenId.toNumber()} characterIndex: ${characterIndex.toNumber()}`
             );
 
-            /*
-             * Once our character NFT is minted we can fetch the metadata from our contract
-             * and set it in state to move onto the Arena
-             */
             if (gameContract) {
                 const characterNFT = await gameContract.checkIfUserHasNFT();
                 console.log('CharacterNFT: ', characterNFT);
-                //setCharacterNFT(transformCharacterData(characterNFT));
                 setForm({
                     target: {
                         name: 'characterNFT', // form element
@@ -130,17 +107,11 @@ const Character = ({ setForm, formData, navigation }) => {
                 })
             }
         };
-        /*
-         * If our gameContract is ready, let's get characters!
-         */
         if (gameContract) {
             getCharacters();
             gameContract.on('CharacterNFTMinted', onCharacterMint);
         }
         return () => {
-            /*
-             * When your component unmounts, let;s make sure to clean up this listener
-             */
             if (gameContract) {
                 gameContract.off('CharacterNFTMinted', onCharacterMint);
             }
@@ -158,14 +129,13 @@ const Character = ({ setForm, formData, navigation }) => {
                             {!isMinted ? (
                                 <div className="select-character-container">
                                 To Proceed, You Must Choose Your Hacker
-                                {/* Only show this when there are characters in state */}
                                 {characters.length > 0 && (
                                     <div className="character-grid">{renderCharacters()}</div>
                                 )}</div>
                                 )  : ( 
                                     <div className="character_next">
                                     You have an NFT character.  You can proceed to the battle phase.
-                                    <div className="next_button_character"><button onClick={next}>Next</button></div>
+                                    <div className="next_button_character"><button onClick={next}>Next -></button></div>
                                 </div>
                                 )}
                         </div>

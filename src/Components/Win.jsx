@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
 import SplashScreen from "./SplashScreen";
 import {ethers} from "ethers";
-import {CONTRACT_ADDRESS, transformCharacterData} from "../constants";
+import {CONTRACT_ADDRESS, transformCharacterData, TOKEN_ADDRESS} from "../constants";
 import myEpicGame from "../utils/MyEpicGame.json";
 import '../assets/css/Arena.css'
-
-// onClick={() => go("submit")}
 
 const Win = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -15,27 +13,29 @@ const Win = ({ setForm, formData, navigation }) => {
     const { go } = navigation;
     const {next} = navigation;
     const { personType, characterNFT, hasBattled, hasBattled2 } = formData;
-    // Splash Screen
     useEffect(() => {
-        // Wait for 3 seconds
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);
     }, []);
 
-    // add results navigation and go from the arena to the results.
-
     return isLoading ?
         <SplashScreen isLoading={isLoading} /> :
         (
-            <div className="App">
-                <div className="container">
-                            <div className="you-lose">
+        <div className="App">
+            <div className="container">
+                <div className="header-container">
+                    <p className="header gradient-text"></p>
+                        <p className="sub-text"></p>
+                            <div className="game-result">
                                 You win.
                             </div>
                 </div>
             </div>
+        </div>
                 
+
+
         )
 
 }

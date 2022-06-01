@@ -7,16 +7,16 @@
   left: 750px;
 }
 
-.you-lose {
+.game_result {
   position: absolute;
   font-family: 'Courier New', Courier, monospace;
   top: 300px;
   left: 725px;
   width: 500px;
-  height: 500px;
+  height: 300px;
   opacity: 1.0;
-  background: #e5652e;
-  color: white;
+  background: #000000;
+  color: #61dd09;
 }
 
 .boss-info {
