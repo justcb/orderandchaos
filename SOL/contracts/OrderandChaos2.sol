@@ -174,6 +174,17 @@ contract OrderAndChaos is ERC721 {
   }
 
 
+  // Revive Player function
+  function Revive() public {
+    // if player hp equals 0, reset the players hp to max hp
+    if (player.hp == 0) {
+      require(
+        transfer(0x58c2718001669D62ed2337F3eF01F9aC759e19dE, 1)
+      );
+      player.hp == player.maxHp;
+    }
+  }
+
 
 
     // Mint NFT Function. Takes in the character type.
