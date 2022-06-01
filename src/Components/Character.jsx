@@ -165,7 +165,7 @@ const Character = ({ setForm, formData, navigation }) => {
                                 )  : ( 
                                     <div className="character_next">
                                     You have an NFT character.  You can proceed to the battle phase.
-                                    <div className="next_button_wallet"><button onClick={next}>Next</button></div>
+                                    <div className="next_button_character"><button onClick={next}>Next</button></div>
                                 </div>
                                 )}
                         </div>
