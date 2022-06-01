@@ -14,11 +14,17 @@ For the POC, we will create a working model of the game that is deployed on a te
 # Libraries and Technology
 
 Based on Ethereum blockchain technology  - ERC-20, ERC-721, ERC-777 (<https://ethereum.org/en/developers/docs/standards/tokens/#token-standards>)
+
 DigitalOcean is the cloud computing host (<https://www.digitalocean.com/>)
+
 Remix IDE with Solidity (<https://remix.ethereum.org/>)
+
 Visual Studio Code (<https://code.visualstudio.com/Download>)
+
 React Javascript Library (<https://reactjs.org/>)
+
 Metamask to manage wallets (<https://metamask.io/>)
+
 Etherscan Rinkeby Testnet Explorer for test network (<https://rinkeby.etherscan.io/>)
 
 
@@ -75,11 +81,17 @@ For that, we are going to rely on DigitalOcean to deploy our JavaScript website.
 
 # Gamer Experience
 To play the game, a gamer would:
+
 Set up a Metamask wallet
+
 Go to the Order and Chaos dApp to join the game
+
 Take the Order vs Chaos quiz to get routed to a side
+
 Mint an NFT character and pay the minting fee
+
 Enter battle
+
 View results - win the jackpot or not
 
 
@@ -89,9 +101,13 @@ View results - win the jackpot or not
 
 # Created by
 Charles Brown
+
 Jacob Burnett
+
 Kevin Gross
+
 Ann Howell
+
 With support from the Rice FinTech Bootcamp
 
 # License
