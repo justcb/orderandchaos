@@ -7,7 +7,7 @@ const SplashScreen = () => {
     <div className="lds-ring">
       <div></div>
       <div></div>
-        <img src="quiz_template.png"></img>
+        <img src="../quiz_template.png"></img>
       <div></div>
       <div></div>
     </div>
