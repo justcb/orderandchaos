@@ -28,7 +28,7 @@ const Lose = ({ setForm, formData, navigation }) => {
                     <p className="header gradient-text"></p>
                         <p className="sub-text"></p>
                             <div className="game-result">
-                                You lose.
+                                YOU LOSE, the balance has not been maintained... you can now return to the arena or choose a new hacker |
                             </div>
                 </div>
             </div>

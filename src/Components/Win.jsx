@@ -28,7 +28,7 @@ const Win = ({ setForm, formData, navigation }) => {
                     <p className="header gradient-text"></p>
                         <p className="sub-text"></p>
                             <div className="game-result">
-                                Congradulations, YOU WIN. You've helped maintain the balance... you can return to the arena or choose a new hacker
+                                Congradulations, YOU WIN. You've helped maintain the balance... you can return to the arena or choose a new hacker |
                             </div>
                 </div>
             </div>
