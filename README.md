@@ -30,6 +30,7 @@ Etherscan Rinkeby Testnet Explorer for test network (<https://rinkeby.etherscan.
 
 # To Play this game, you must:
 Have an Etheruem Blockchain wallet address connected to metamask and Remix
+
 Connect to the Rinkeby Testnet network on Remix
 
 
@@ -77,6 +78,8 @@ For that, we are going to rely on DigitalOcean to deploy our JavaScript website.
 ![Launch screen](<img/logo_w_computer.png>)
 
 # Sample of NFT characters
+
+![Sample NFT Character](<img/nft/suit_nft.png>)
 
 
 # Gamer Experience
