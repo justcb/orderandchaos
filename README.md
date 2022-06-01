@@ -1,7 +1,7 @@
 # Order and Chaos Proof of Concept June 2022
 
 # Overview
-'''
+
 Our project is to create a token-based game that allows players to choose sides and battle on behalf of Order or Chaos. 
 
 The game uses blockchain technology including Solidity, Ethereum ERC-20 Fungible Tokens, and the ERC-721 Nonfungible Tokens. Using these tokens, players will be able to earn OAC tokens as they play. 
@@ -10,7 +10,6 @@ This is a growing genre of FinTech, combining gaming with opportunities to earn 
 
 For the POC, we will create a working model of the game that is deployed on a test network. Our focus here is to establish the backend Fintech blockchain components. Ultimately the goal for the product would be to improve the gameplay to generate revenue by monetizing the game and building the value of the OAC tokens.
 
-'''
 
 # Libraries and Technology
 
@@ -61,6 +60,8 @@ For that, we are going to rely on DigitalOcean to deploy our JavaScript website.
 
 ![Orderand Chaos Solidity in Remix ready to deploy and run](<img/2.png>)
 
+
+#Proof of Transfer on Rinkeby Test Network
 ![Proof of transfer on Etherscan Rinkeby Test Network](<img/3.png>)
 
 
@@ -68,7 +69,7 @@ For that, we are going to rely on DigitalOcean to deploy our JavaScript website.
 
 
 # Graphical Interface for game
-![Launch screen](<img/>)
+![Launch screen](<img/logo_w_computer.png>)
 
 # Sample of NFT characters
 
@@ -82,11 +83,11 @@ For that, we are going to rely on DigitalOcean to deploy our JavaScript website.
 
 
 # Created by
-#Charles Brown
-#Jacob Burnett
-#Kevin Gross
-#Ann Howell
-#With support from the Rice FinTech Bootcamp
+Charles Brown
+Jacob Burnett
+Kevin Gross
+Ann Howell
+With support from the Rice FinTech Bootcamp
 
 # License
 MIT
