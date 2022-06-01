@@ -4,7 +4,7 @@ import {ethers} from "ethers";
 import {CONTRACT_ADDRESS, transformCharacterData, TOKEN_ADDRESS} from "../constants";
 import myEpicGame from "../utils/MyEpicGame.json";
 import '../assets/css/Arena.css'
-\
+
 const Arena = ({ setForm, formData, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [gameContract, setGameContract] = useState(null);
