@@ -13,20 +13,19 @@ For the POC, we will create a working model of the game that is deployed on a te
 
 # Libraries and Technology
 
-#Based on Ethereum blockchain technology  - ERC-20, ERC-721, ERC-777
-#DigitalOcean is the cloud computing host
-#Remix IDE with Solidity
-#Visual Studio Code
-#React Javascript Library
-#Metamask to manage wallets
-#Ganache Truffle Suite to provide test wallet accounts
-#Etherscan Rinkeby Testnet Explorer for test network
+Based on Ethereum blockchain technology  - ERC-20, ERC-721, ERC-777 (<https://ethereum.org/en/developers/docs/standards/tokens/#token-standards>)
+DigitalOcean is the cloud computing host (<https://www.digitalocean.com/>)
+Remix IDE with Solidity (<https://remix.ethereum.org/>)
+Visual Studio Code (<https://code.visualstudio.com/Download>)
+React Javascript Library (<https://reactjs.org/>)
+Metamask to manage wallets (<https://metamask.io/>)
+Etherscan Rinkeby Testnet Explorer for test network (<https://rinkeby.etherscan.io/>)
 
 
 # To Play this game, you must:
-#Have an Etheruem Blockchain wallet address connected to metamask
-#Connect to the Rinkeby Testnet network on Remix
-#See the steps for game play in the test environment here: 
+Have an Etheruem Blockchain wallet address connected to metamask and Remix
+Connect to the Rinkeby Testnet network on Remix
+
 
 # Overview of app backend
 
@@ -74,8 +73,14 @@ For that, we are going to rely on DigitalOcean to deploy our JavaScript website.
 # Sample of NFT characters
 
 
-# Example of game play
-
+# Gamer Experience
+To play the game, a gamer would:
+Set up a Metamask wallet
+Go to the Order and Chaos dApp to join the game
+Take the Order vs Chaos quiz to get routed to a side
+Mint an NFT character and pay the minting fee
+Enter battle
+View results - win the jackpot or not
 
 
 
