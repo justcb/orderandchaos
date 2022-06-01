@@ -18,6 +18,9 @@ const IntroScreen = () => {
     <p>You have been recruited to join an army of hackers.  But first you must choose your side.</p>
     
   </div>
+  <div className = "button">
+    <p>Hello World</p>
+  </div>
 
 </section>
   );
